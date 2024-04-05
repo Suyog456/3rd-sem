@@ -1,0 +1,325 @@
+<html>
+<head><title>Product addition page</title>
+</head>
+<body>
+<div class='mdm'>
+<div class="md a"> <h1 style="font-family:sans-serif;">Add new product </h1><br>
+<label for="name">
+Product name</label><br>
+<input type="text" name="name" placeholder = "Enter product name" required><br><br>
+<label for="category">Product Category</label><br>
+<input name="category" type="text" placeholder ="Choose product category"><br><br>
+<label for="subcategory">Product Subcategory</label><br>
+<input name="subcategory" type="text" placeholder='Choose subcategory'><br><br>
+<label for="description">
+Description
+</label><br>
+<textarea name="description" type="text">
+</textarea><br><br>
+<label for='image'>
+Product images
+</label><br>
+<input type='file' name='image' id="file-input"><br><br>
+<div id="image-preview"></div>
+
+</div>
+<div class="md b">
+<label for="price">Price</label><br>
+<input type="number" placeholder="000.00" name="price"><br><br>
+<label for="negotiable">Negotiable ? </label><br>
+<input type="radio" id="yes" name="negotiable" value="Yes">
+<label for="yes">Yes</label>
+<input type="radio" id="no" name="negotiable" value="No" checked>
+<label for="no">No</label><br><br>
+<label for="varient">Variant</label><br>
+
+<input type="text" placeholder="Product variants" name="variant"><br><br>
+<label for="features">Add additional features</label><br>
+<input type="text" placeholder="Enter key" name="Key">
+<button class="add_btn">Add Product</button>
+<button class="save_btn">Save</button>
+</div>
+</div>
+<br><br>
+<div class='darkmode'>
+
+<div class='eledark'></div>
+</div>
+<div id="nav_add">
+<h1 style="font-size:3rem;">Khojauhub</h1>
+<br>
+<br>
+<div class='nvb_b'>
+<div class='nvb a'>
+Dashboard
+</div>
+<div class='nvb b'>
+Products
+</div>
+<div class='nvb c'>
+Customers
+</div>
+<div class='nvb d'>
+Messages
+</div>
+<div class='nvb e'>
+Promotions / discounts
+</div>
+<div class='lo'>
+Logout
+
+</div>
+</div>
+
+
+</div>
+
+</body>
+<script>
+
+document.getElementById('file-input').addEventListener('change', function(event) {
+  var files = event.target.files;
+  var preview = document.getElementById('image-preview');
+
+  preview.innerHTML = '';
+
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      var img = document.createElement('img');
+      img.src = e.target.result;
+      img.classList.add('preview-image');
+      preview.appendChild(img);
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
+var darkmode = document.getElementsByClassName("darkmode")[0]; // Accessing the first element in the collection
+var elediv = document.getElementsByClassName("eledark")[0]; // Accessing the first element in the collection
+var body_tag = document.getElementsByTagName("body")[0]; // Accessing the first element in the collection
+var input_tags = document.getElementsByTagName("input");
+var md=document.getElementsByClassName("md");
+function darkmode_maker(){
+darkmode.style.background="rgba(230,230,230,0.1)";
+  elediv.style.background="rgba(255,255,255,0.8)";
+  body_tag.style.background = "rgb(49, 51, 56)";
+  body_tag.style.color = 'white';
+  for (var i = 0; i < input_tags.length; i++) {
+    input_tags[i].style.background = "rgba(49, 51, 56, 0.3)";
+    input_tags[i].style.color = "white";
+	
+  }
+  for(var i=0;i<md.length;i++){
+  md[i].style.background = "rgb(49, 51, 56)";
+  }
+  elediv.style.marginLeft = "50%";
+
+}
+darkmode_maker();
+function darkmode_remover(){
+
+darkmode.style.background = ""; // Revert background color of darkmode element
+  elediv.style.background = ""; // Revert background color of elediv element
+  body_tag.style.background = ""; // Revert background color of body
+  body_tag.style.color = ""; // Revert text color of body
+  for (var i = 0; i < input_tags.length; i++) {
+    input_tags[i].style.background = ""; // Revert background color of input tags
+    input_tags[i].style.color = ""; // Revert text color of input tags
+  }
+  for (var i = 0; i < md.length; i++) {
+    md[i].style.background = ""; // Revert background color of elements with class md
+  }
+  elediv.style.marginLeft = ""; 
+
+}
+var num = 1;
+darkmode.addEventListener("click", function() {
+	if (num==1){
+  darkmode_remover();
+  num = 0;
+  }
+  else{
+  darkmode_maker();
+  num=1;
+  }
+ // Use camelCase for CSS properties
+});
+
+</script>
+<style>
+*{
+padding:0;
+margin:0;
+font-size:1rem;
+letter-spacing:1px;
+
+
+}
+body{
+width:100vw;
+height:130vh;
+
+transition:1s ease-in-out;
+
+}
+.lo{
+position:fixed;
+top:90vh;
+right:15vw;
+color:white;
+
+}
+#nav_add{
+width:20vw;
+top:1vw;
+right:1vw;
+text-align:center;
+align-items:center;
+position:fixed;
+background:rgba(0,0,0,0.1);
+height:96vh;
+border-radius:20px;
+padding:2vw;
+border:1px inset rgba(0,0,0,0.2);
+
+}
+.darkmode{
+width:40px;
+height:20px;
+border-radius:20px;
+cursor:pointer;
+background:rgb(39,43,47);
+position:fixed;
+top:5vh;
+left:65vw;
+transition:.1s;
+
+}
+.nvb_b{
+width:80%;
+align-items:left;
+padding-left:10%;
+text-align:left;
+color:grey;
+display:inline-block;
+cursor:pointer;
+}
+.nvb:hover{
+color:rgb(171,145,249);
+background:rgb(229,221,253);
+}
+.nvb{
+margin-bottom:3vh;
+transition:0.5s;
+padding:1vw 2vw;
+border-radius:10px 20px 20px 10px;
+
+}
+.eledark{
+width:24px;
+height:24px;
+border-radius:50%;
+margin-left:0;
+background:white;
+content:'';
+transition:.5s ease-in-out;
+margin-top:-2px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+.preview-image{
+width:12vw;
+height:12vw;
+
+}
+.mdm{
+display:flex;
+
+}
+.md{
+letter-spacing:1px;
+width:35vw;
+height:140vw;
+display:block;
+border:0px inset grey;
+padding:10px;
+padding-left:20px;
+transition:1s ease-in-out;
+background:rgb(247,247,255);
+}
+.md label{
+font-family:sans-serif;
+font:strong;
+
+
+font-size:14px;
+
+
+}
+
+.md.b{
+padding-top:10vh;
+
+}
+.md input{
+width:95%;
+padding:16px;
+border:none;
+margin-top:1vh;
+background:white;
+color:rgba(0,0,0,0.5);
+outline:1px inset rgba(0,0,0,0.1);
+border-radius:8px;
+margin-bottom:3vh;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+.md textarea{
+width:90%;
+height:10%;
+background:grey;
+
+}
+.md button{
+cursor:pointer;
+
+}
+.md .add_btn{
+margin-top:5vh;
+padding:10px;
+color:white;
+background:rgb(104,54,245);
+border:none;
+outline:none;
+border-radius:10px;
+font-family:sans-serif;
+margin-left:4vw;
+}
+.save_btn{
+color:black;
+background:white;
+margin-top:5vh;
+padding:10px;
+border:1px inset rgb(183,160,246);
+outline:none;
+border-radius:10px;
+font-family:sans-serif;
+
+margin-left:4vw;
+}
+input[type="radio"]{
+width:1vw;
+box-shadow:none;
+height:1vw;
+border-radius:50%;
+border:none;
+outline:none;
+
+
+}
+</style>
+
+</html>
