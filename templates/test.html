@@ -1,47 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Display Selected Images</title>
-<style>
-  #image-preview {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .preview-image {
-    margin: 5px;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenStreetMap with Lines</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-<input type="file" id="file-input" multiple>
-<div id="image-preview"></div>
+  <div id="map" style="height: 90vh;width:90vw;margin-left:5vw;margin-top:5vh;"></div>
 
-<script>
-document.getElementById('file-input').addEventListener('change', function(event) {
-  var files = event.target.files;
-  var preview = document.getElementById('image-preview');
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([27.61931, 85.53857], 16);
 
-  preview.innerHTML = '';
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
 
-  for (var i = 0; i < files.length; i++) {
-    var file = files[i];
-    var reader = new FileReader();
+    // Define the coordinates for the line
+    var lineCoordinates1 = [
+      [27.6203 , 85.53793], 
+      [27.62144 , 85.53782], 
+[27.62198 , 85.53733],
+[27.62159 , 85.53859],	
+[27.6203 , 85.53903],
+             [27.6203 , 85.53793]
+   
+    ];
+	
 
-    reader.onload = function(e) {
-      var img = document.createElement('img');
-      img.src = e.target.result;
-      img.classList.add('preview-image');
-      preview.appendChild(img);
-    };
+    // Create the line
+    var polyline = L.polygon(lineCoordinates1, {color: 'blue'}).addTo(map);
+	polyline.on("mouseover" , function(e){
+	polyline.bindPopup("<img src='' alt='ku gate image'>").openPopup();
 
-    reader.readAsDataURL(file);
-  }
-});
-</script>
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	var lineCoordinates2 = [
+	[27.62277,85.53743],
+	[27.62334 , 85.53831],
+	[27.62353,85.53960],
+	[27.62309,85.54002],
+	[27.62198,85.53783],
+	[27.62201,85.53735]
+	
+	];
+	var polyline2 = L.polygon(lineCoordinates2, {color: 'orange'}).addTo(map);
+	polyline2.on("mouseover" , function(e){
+	polyline2.bindPopup("<img src='' alt='inner households'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline2.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline2.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	
+	
+	
+	var lineCoordinates3 = [
+	[27.62188,85.53803],
+	[27.62255,85.53913],
+	[27.62202,85.54018],
+	[27.62183,85.54122],
+	[27.62106,85.54113],
+	[27.62081,85.54068],
+	[27.62082,85.53921],
+	[27.62159 , 85.53859],
+	[27.62188,85.53803]
+	
+	];
+	var polyline3 = L.polygon(lineCoordinates3, {color: 'green'}).addTo(map);
+	polyline3.on("mouseover" , function(e){
+	polyline3.bindPopup("<img src='' alt='KU road'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline3.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline3.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	
+	
+	var lineCoordinates4 = [
+	[27.62112,85.54122],
+	[27.62193,85.54129],
+	[27.62503,85.54075],
+	[27.62491,85.54152],
+	[27.62348,85.54292],
+	[27.62186,85.54286],
+	[27.62112,85.54122]
+	
+	];
+	var polyline4 = L.polygon(lineCoordinates4, {color: 'violet'}).addTo(map);
+	polyline4.on("mouseover" , function(e){
+	polyline4.bindPopup("<img src='' alt='28 kilo road'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline4.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline4.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	
+	
+	
+	
+	var lineCoordinates5 = [
+	[27.62083,85.54069],
+	[27.62138,85.54194],
+	[27.61890,85.54427],
+	[27.61814,85.54261],
+	[27.61909,85.54084],
+	[27.62069,85.54033],
+	[27.62083,85.54069]
+	
+	];
+	var polyline5 = L.polygon(lineCoordinates5, {color: 'indigo'}).addTo(map);
+	polyline5.on("mouseover" , function(e){
+	polyline5.bindPopup("<img src='' alt='28 kilo road'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline5.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline5.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	
+	
+	
+	var lineCoordinates6 = [
+	[27.61753,85.53695],
+	[27.61789,85.53887],
+	[27.61786,85.53982],
+	[27.61595,85.54106],
+	[27.61536,85.53968],
+	[27.61590,85.53895],
+	[27.61555,85.53797],
+	[27.61582,85.53717],
+	[27.61753,85.53695]
+	
+	];
+	var polyline6 = L.polygon(lineCoordinates6, {color: 'yellow'}).addTo(map);
+	polyline6.on("mouseover" , function(e){
+	polyline6.bindPopup("<img src='' alt='28 kilo road'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline6.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline6.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	
+	
+	var lineCoordinates7 = [
+	[27.61723,85.53437],
+	[27.61692,85.53463],
+	[27.61790,85.53604],
+	[27.61821,85.53597],
+	[27.61916,85.53656],
+	[27.62048,85.53789],
+	[27.62240,85.53560],
+	[27.62072,85.53487],
+	[27.61920,85.53457],
+	[27.61909,85.53599],
+	[27.61751,85.53421],
+	[27.61723,85.53437]
+	];
+	var polyline7 = L.polygon(lineCoordinates7, {color: 'cyan'}).addTo(map);
+	polyline7.on("mouseover" , function(e){
+	polyline7.bindPopup("<img src='' alt='28 kilo road'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline7.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline7.closePopup();
+    
+	taged.innerText = "";
+	});
+	
+	
+	
+	
+		var lineCoordinates8 = [
+	
+	[27.62144 , 85.53782], 
+[27.62198 , 85.53733],
+	[27.62308,85.53706],
+	[27.62442,85.53551],
+	[27.62370,85.53500],
+	[27.62269,85.53554],
+	[27.62048,85.53789],
+	
+	];
+	var polyline8 = L.polygon(lineCoordinates8, {color: 'Maroon'}).addTo(map);
+	polyline8.on("mouseover" , function(e){
+	polyline8.bindPopup("<img src='' alt='Mallu house'>").openPopup();
+
+	var taged = document.getElementById("content_generator");
+	taged.innerText="Mouse was hovered";
+	
+	});
+	polyline8.on("mouseout" , function(e){
+	var taged = document.getElementById("content_generator");
+	polyline8.closePopup();
+    
+	taged.innerText = "";
+	});
+ </script>
+ <div id="content_generator"></div>
+ 
+ 
+ <div>{{content}}</div>
+ <form method ="POST" name = "test_form">
+ 
+ 
+ </form>
 </body>
 </html>
