@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Create Account</title>
+    <style>
+body{
+background-image:url("templates.jpg");
+font-family:sans-serif;
+letter-spacing:1px; 
+word-spacing:1px;
+}
+        .container {
+margin-left:35vw;
+margin-top:10vh;
+            align-items: left;
+            height: 80vh;
+        }
+        
+h2{
+font-family: sans-serif;
+
+}
+button{
+background-color:black;
+color:white;
+width:30vw;
+height:5vh;
+padding:15px;
+margin-left:10px;
+border-radius:5px;
+cursor:pointer;
+}
+label{
+
+font-size:.8rem;
+}
+input:hover{
+border:1px inset grey;
+padding-left:15px;
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+input:active{
+outline:none;
+border:none;
+}
+button:hover{
+
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+input{
+font-size:1rem;
+border:none;
+transition:.5s;
+cursor:pointer;
+padding:10px;
+width:30vw;
+border-radius:5px;
+margin-left:0px;
+animation:square 1s ease-in-out;
+
+}
+@keyframes square{
+10%{
+transform:scale(0.2);
+margin-top:50vh;
+
+}
+
+
+100%{
+transform:scale(1);
+margin-top:0%;
+}
+
+}
+
+
+@media only screen and (max-width: 900px) {
+input{
+width:70vw;
+height:1.5vh;
+font-size:1.5rem;
+font:bold;
+}
+
+h2{
+font-size:2rem;
+}
+.fp{
+font-size:1.2rem;
+margin-left:55vw;
+}
+label{
+font-size:1.5rem;
+color:black;
+
+}
+.rm input{
+
+}
+.rm{
+font-size:1.2rem;
+width:30vw;
+display:inline-flex;
+
+}
+.rm p{
+font-size:1.4rem;
+margin-top:0vh;
+margin-left:2vw;
+}
+
+button{
+height:3vh;
+margin-left:20vw;
+padding-top:1vh;
+padding-bottom:0.8vh;
+font-size:1.3rem;
+width:30vw;
+}
+        .container {
+margin-left:10vw;
+margin-top:10vh;
+            align-items: left;
+        }
+
+.al{
+font-size:1.4rem;
+}
+
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="#" method="post">
+            <h2>Create Account</h2>
+            <label for="full_name">Full Name:</label><br>
+            <input type="text" id="full_name" name="full_name" placeholder="" required><br><br>
+
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: +977-1234567890" required><br><br>
+
+            <button >Create an account</button> 
+<p><a href="file:///C:/Users/sapko/OneDrive/Desktop/login1.html">
+       </form>
+    </div>
+    <div style="text-align: center; margin-top: 20px;" class="al">
+        <p>Already a user? <a href="file:///C:/Users/sapko/OneDrive/Desktop/login1.html">Login</a></p>
+    </div>
+    </body>
+</html>
+
+
